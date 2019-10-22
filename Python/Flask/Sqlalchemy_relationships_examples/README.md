@@ -17,4 +17,6 @@ python run_manytomany.py
 
 Debugging SQL Queries in Flask-SQL alchemy
 
+# References
+A handy SQL debug function for Flask-SQLAlchemy - https://gist.github.com/dhrrgn/6022858
 
