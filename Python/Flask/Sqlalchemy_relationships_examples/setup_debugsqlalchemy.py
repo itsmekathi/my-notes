@@ -1,5 +1,4 @@
-from debugsqlalchemy import db
-from models import Person, Pet
+from debugsqlalchemy import db, Person, Pet
 db.drop_all()
 db.create_all()
 kathiravan = Person(name="Kathiravan")
@@ -14,3 +13,4 @@ babblu = Pet(name='Bablu', owner=kathiravan)
 
 spot = Pet(name="Spot", owner = michelle)
 db.session.commit()
+

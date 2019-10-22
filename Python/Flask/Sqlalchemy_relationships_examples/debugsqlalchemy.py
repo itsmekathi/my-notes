@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy, get_debug_queries
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///debugsqlalchemy.db'
+# app.config['SQLALCHEMY_ECHO'] = True # Prints the query to the console without any extra code
 
 db = SQLAlchemy(app)
 
@@ -22,7 +23,7 @@ class Pet(db.Model):
 
 @app.route('/')
 def index():
-    a = User.query.filter_by(name='Kathiravan').first()
+    a = Person.query.filter_by(name='Kathiravan').first()
     return "Hello "+ a.name
 
 def sql_debug(response):
@@ -31,15 +32,20 @@ def sql_debug(response):
     total_duration = 0.0
     for q in queries:
         total_duration += q.duration
-        stmt = str(q.statement % q.parameters).replace('\n', '\n       ')
-        query_str += f'Query: {stmt}\nDuration: {round(q.duration * 1000, 2)}ms\n\n'
+        #stmt = str(q.statement % q.parameters).replace('\n', '\n       ')
+        print(q.statement)
+        print(q.parameters)
+        #query_str += 'Query: {0}\nDuration: {1}ms\n\n'.format(stmt, round(q.duration * 1000, 2))
+
     print('=' * 80)
-    print(f'SQL Queries - {len(queries)} Queries Executed in {round(total_duration * 1000, 2)}ms')
+    print(' SQL Queries - {0} Queries Executed in {1}ms'.format(len(queries), round(total_duration * 1000, 2)))
     print('=' * 80)
     print(query_str.rstrip('\n'))
     print('=' * 80 + '\n')
 
     return response
+
+
 app.after_request(sql_debug)
 
 if __name__ == '__main__':

@@ -13,10 +13,12 @@ python run_onetomany.py
 To test the many to many example run the below command on 
 python run_manytomany.py
 
-# To be added
+To test the debuging with Flask_sqlaclemy first 
+1, execute pyton setup_debugsqlalchemy.py
+2, execute debug_debugsqlalchemy.bat
 
-Debugging SQL Queries in Flask-SQL alchemy
 
 # References
 A handy SQL debug function for Flask-SQLAlchemy - https://gist.github.com/dhrrgn/6022858
+
 
