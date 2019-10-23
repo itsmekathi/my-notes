@@ -1,0 +1,9 @@
+.active {
+    color: red;
+    font-weight: bold;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
