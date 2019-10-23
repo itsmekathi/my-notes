@@ -1,4 +1,4 @@
-# Angularjs applicatin examples
+# Angularjs application examples
 Angular js examples
 
 1, ui-router
